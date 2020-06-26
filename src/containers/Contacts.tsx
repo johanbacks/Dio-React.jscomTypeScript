@@ -19,7 +19,14 @@ const Cards = styled.div`
   overflow-y: auto;
 `;
 
+const ContatctList = styled.div`
+  margin: 0;
+  padding:0
+`;
+
+
 const Contacts = () => {
+  const [isAddindContact , setAddingContact] = useState(false);
   const [ contacts , setContacts ] = useState(Contact) 
 
   const handleRemoveContact = (removeContactId:string) => {
@@ -30,7 +37,17 @@ const Contacts = () => {
   return (  
   <Wrapper>
     <Cards >
-    <ul>
+      <header>
+        {
+          isAddindContact && (
+            <form>
+            
+            </form>
+          )
+        }
+        <button onClick={() => setAddingContact(true)}>Adicionar Contato</button>
+      </header>
+    <ContatctList>
       {contacts.map(contact => (
         <Contactitem
           key={contact.id}
@@ -38,7 +55,7 @@ const Contacts = () => {
           onRemoveContact={handleRemoveContact}
         />
       ))}
-    </ul>
+    </ContatctList>
     </Cards>
     </Wrapper>
   )
