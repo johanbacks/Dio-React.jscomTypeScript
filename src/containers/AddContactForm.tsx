@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import  uuid from 'uuid';
+import  { v4 as uuidv4 } from 'uuid';
 
 import Contact from '../models/Contact';
 
@@ -12,11 +12,11 @@ const AddContactForm = ({ onAddContact }: Props) => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     onAddContact({
-      id: uuid(),
+      id: uuidv4(),
       name,
       email,
       phoneNumber

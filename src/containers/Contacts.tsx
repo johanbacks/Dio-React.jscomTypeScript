@@ -1,7 +1,9 @@
 import React,{ useState } from "react";
 import styled from 'styled-components';
-import Contact from "../contacts"
-import Contactitem  from "../components/Contactitem"
+import Contact from "../contacts";
+import Contactitem  from "../components/Contactitem";
+import AddContactForm from "./AddContactForm";
+
 
 const Wrapper = styled.main`
   display: flex;
@@ -34,17 +36,12 @@ const Contacts = () => {
       contacts.filter(contact => contact.id !== removeContactId))
   }
 
+
   return (  
   <Wrapper>
     <Cards >
       <header>
-        {
-          isAddindContact && (
-            <form>
-            
-            </form>
-          )
-        }
+         
         <button onClick={() => setAddingContact(true)}>Adicionar Contato</button>
       </header>
     <ContatctList>
